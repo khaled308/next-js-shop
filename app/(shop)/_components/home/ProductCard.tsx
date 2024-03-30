@@ -1,6 +1,6 @@
-import Rating from "@/components/ui/Rating";
 import { Product as ProductType, Review } from "@prisma/client";
 import Image from "next/image";
+import Rating from "../ui/Rating";
 
 interface Product extends ProductType {
   reviews: Review[];
