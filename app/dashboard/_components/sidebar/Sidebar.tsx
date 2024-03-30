@@ -13,7 +13,7 @@ const Sidebar = () => {
   }
 
   return (
-    <div className="sticky z-30 flex-shrink-0 shadow-sm w-64 overflow-y-auto bg-white dark:bg-gray-800 lg:block">
+    <div className="fixed md:sticky pt-20 md:pt-0 h-screen z-30 flex-shrink-0 shadow-sm w-64 overflow-y-auto bg-white dark:bg-gray-800 lg:block">
       <Link
         href="/dashboard"
         className="p-4 text-xl font-semibold text-gray-700 dark:text-gray-200 flex items-center gap-4"
