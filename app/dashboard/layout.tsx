@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
-import "@/styles/main.css";
+import "./main.css";
 import DarkModeProvider from "./_providers/DarkModeProvider";
 import Navbar from "./_components/navbar/Navbar";
+import Sidebar from "./_components/sidebar/Sidebar";
 
 const font = Open_Sans({
   subsets: ["latin"],
@@ -22,11 +23,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={font.className}>
         <DarkModeProvider>
-          <div className="bg-gray-50 dark:bg-gray-900 h-screen flex">
-            {/* sidebar */}
+          <div className="bg-gray-50 dark:bg-gray-900 min-h-screen flex">
+            <Sidebar />
             <div className="flex flex-col flex-1 w-full">
               <Navbar />
-              {children}
+              <main className="container mx-auto">{children}</main>
             </div>
           </div>
         </DarkModeProvider>

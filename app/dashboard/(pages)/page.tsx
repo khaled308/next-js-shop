@@ -1,1 +1,9 @@
-export default function Dashboard() {}
+import Heading from "../_components/Heading";
+
+export default function Dashboard() {
+  return (
+    <div>
+      <Heading title="Dashboard" />
+    </div>
+  );
+}
