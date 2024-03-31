@@ -4,6 +4,7 @@ import "./main.css";
 import DarkModeProvider from "./_providers/DarkModeProvider";
 import Navbar from "./_components/navbar/Navbar";
 import Sidebar from "./_components/sidebar/Sidebar";
+import QueryClientProvider from "../shared/providers/QueryClientProvider";
 
 const font = Open_Sans({
   subsets: ["latin"],
@@ -22,15 +23,17 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <DarkModeProvider>
-          <div className="bg-gray-50 dark:bg-gray-900 min-h-screen flex">
-            <Sidebar />
-            <div className="flex flex-col flex-1 w-full">
-              <Navbar />
-              <main className="container mx-auto">{children}</main>
+        <QueryClientProvider>
+          <DarkModeProvider>
+            <div className="bg-gray-50 dark:bg-gray-900 min-h-screen flex">
+              <Sidebar />
+              <div className="flex flex-col flex-1 w-full">
+                <Navbar />
+                <main className="container mx-auto">{children}</main>
+              </div>
             </div>
-          </div>
-        </DarkModeProvider>
+          </DarkModeProvider>
+        </QueryClientProvider>
       </body>
     </html>
   );

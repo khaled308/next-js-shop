@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .btn {
-  @apply inline-flex items-center justify-center cursor-pointer leading-5 transition-colors duration-150 font-medium focus:outline-none px-5 py-3 rounded-lg border border-transparent w-full;
+  @apply inline-flex items-center justify-center cursor-pointer leading-5 transition-colors duration-150 font-medium focus:outline-none px-5 py-3 rounded-lg border border-transparent;
 }

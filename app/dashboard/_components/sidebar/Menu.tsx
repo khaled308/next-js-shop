@@ -15,7 +15,7 @@ const Menu = () => {
         <LuLayoutDashboard size={24} />
         <span className="ml-4">Dashboard</span>
       </MenuItem>
-      <MenuItem href="#">
+      <MenuItem href="/dashboard/products">
         <FaBox size={24} />
         <span className="ml-4">Products</span>
       </MenuItem>
