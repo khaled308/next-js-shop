@@ -5,8 +5,10 @@ import Input from "../form/Input";
 import Textarea from "../form/TextArea";
 import CategorySelect from "./CategorySelect";
 import BrandSelect from "./BrandSelect";
+import { Product } from "@prisma/client";
+import File from "../form/File";
 
-const ProductForm = () => {
+const ProductForm = ({ product }: { product?: Product }) => {
   const {
     register,
     formState: { errors },
@@ -18,12 +20,14 @@ const ProductForm = () => {
         id="name"
         register={register}
         errors={errors}
+        value={product?.name}
       />
       <Textarea
         label="Description"
         id="description"
         register={register}
         errors={errors}
+        value={product?.description}
       />
       <Input
         label="Price"
@@ -32,6 +36,7 @@ const ProductForm = () => {
         formatPrice
         register={register}
         errors={errors}
+        value={product?.price}
       />
       <Input
         label="Stock"
@@ -39,9 +44,20 @@ const ProductForm = () => {
         type="number"
         register={register}
         errors={errors}
+        value={product?.quantity}
       />
-      <CategorySelect register={register} errors={errors} />
-      <BrandSelect register={register} errors={errors} />
+      <CategorySelect
+        register={register}
+        errors={errors}
+        value={product?.categoryId}
+      />
+      <BrandSelect
+        register={register}
+        errors={errors}
+        value={product?.brandId}
+      />
+      <File label="Product Cover Image" />
+      <File label="Product Gallery" multiple />
       <button className="btn bg-emerald-500 text-white">Add</button>
     </div>
   );

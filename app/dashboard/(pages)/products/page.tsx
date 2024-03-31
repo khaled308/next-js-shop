@@ -5,6 +5,8 @@ import { TBody, THead, Table, Td } from "../../_components/table";
 import { FaRegEdit } from "react-icons/fa";
 import { RiDeleteBinLine } from "react-icons/ri";
 import Image from "next/image";
+import Link from "next/link";
+import { MdOutlineRemoveRedEye } from "react-icons/md";
 
 export default async function ProductsPage() {
   const products = await prisma.product.findMany({
@@ -43,9 +45,18 @@ export default async function ProductsPage() {
               <Td>${product.price}</Td>
               <Td>{product.quantity}</Td>
               <Td>
-                <button className="text-xl mr-2">
+                <Link
+                  href={`/dashboard/products/edit/${product.id}`}
+                  className="inline-block text-xl mr-2"
+                >
                   <FaRegEdit />
-                </button>
+                </Link>
+                <Link
+                  href={`/dashboard/products/${product.id}`}
+                  className="inline-block text-xl mr-2"
+                >
+                  <MdOutlineRemoveRedEye />
+                </Link>
                 <button className="text-xl">
                   <RiDeleteBinLine />
                 </button>

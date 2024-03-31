@@ -8,9 +8,10 @@ import Select from "../form/Select";
 interface Props {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
+  value?: string | number;
 }
 
-const CategorySelect = ({ errors, register }: Props) => {
+const CategorySelect = ({ errors, register, value }: Props) => {
   const {
     data: categories,
     error,
@@ -26,6 +27,7 @@ const CategorySelect = ({ errors, register }: Props) => {
       label="Categories"
       errors={errors}
       register={register}
+      value={value}
       options={
         categories?.map((category) => ({
           label: category.name,

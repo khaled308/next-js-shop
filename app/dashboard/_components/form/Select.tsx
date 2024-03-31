@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
@@ -14,6 +15,7 @@ interface SelectProps {
   required?: boolean;
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
+  value?: string | number;
 }
 
 const Select: React.FC<SelectProps> = ({
@@ -24,6 +26,7 @@ const Select: React.FC<SelectProps> = ({
   register,
   required,
   errors,
+  value,
 }) => {
   return (
     <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6 items-center">
@@ -35,6 +38,7 @@ const Select: React.FC<SelectProps> = ({
           id={id}
           disabled={disabled}
           {...register(id, { required })}
+          defaultValue={value}
           className={`
             block
             w-full
@@ -60,7 +64,11 @@ const Select: React.FC<SelectProps> = ({
           `}
         >
           {options.map((option, index) => (
-            <option key={index} value={option.value}>
+            <option
+              key={index}
+              value={option.value}
+              selected={option.value === value}
+            >
               {option.label}
             </option>
           ))}

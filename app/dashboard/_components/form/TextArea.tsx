@@ -9,6 +9,7 @@ interface TextareaProps {
   register: UseFormRegister<FieldValues>;
   errors: FieldErrors;
   rows?: number;
+  value?: string;
 }
 
 const Textarea: React.FC<TextareaProps> = ({
@@ -19,6 +20,7 @@ const Textarea: React.FC<TextareaProps> = ({
   required,
   errors,
   rows = 3,
+  value,
 }) => {
   return (
     <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6 items-center">
@@ -54,7 +56,9 @@ const Textarea: React.FC<TextareaProps> = ({
             ${errors[id] ? "border-rose-500" : "border-neutral-300"}
             ${errors[id] ? "focus:border-rose-500" : "focus:border-black"}
           `}
-        />
+        >
+          {value}
+        </textarea>
       </div>
     </div>
   );
