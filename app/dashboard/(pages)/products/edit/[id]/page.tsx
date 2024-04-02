@@ -14,6 +14,9 @@ export default async function EditPage({ params }: Props) {
     where: {
       id: parseInt(params.id),
     },
+    include: {
+      images: true,
+    },
   });
 
   if (!product) return notFound();

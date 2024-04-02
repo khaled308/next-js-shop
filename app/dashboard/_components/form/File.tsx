@@ -9,7 +9,7 @@ interface FileProps {
 
 const File: React.FC<FileProps> = ({ label, multiple, onChange }) => {
   return (
-    <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 mb-6 items-center">
+    <div className="grid grid-cols-6 gap-3 md:gap-5 xl:gap-6 lg:gap-6 items-center">
       <label className="block text-gray-800 dark:text-gray-400 col-span-4 sm:col-span-2 font-medium text-sm">
         {label}
       </label>
